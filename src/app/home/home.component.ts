@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { EventData } from 'tns-core-modules/data/observable';
+import { Button } from "tns-core-modules/ui/button";
 
 @Component({
     selector: "Home",
@@ -7,11 +9,19 @@ import { Component, OnInit } from "@angular/core";
 })
 export class HomeComponent implements OnInit {
 
+    counter:number = 0;
+
     constructor() {
-        // Use the component constructor to inject providers.
     }
 
+    onTap(args:EventData) {
+        let button = <Button>args.object;
+        this.counter++;
+        alert("クリック : " + this.counter + " 回");
+    }
+    
+
     ngOnInit(): void {
-        // Init your component properties here.
+        console.log("Button UIです！");
     }
 }
